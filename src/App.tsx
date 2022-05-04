@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import './App.module.css';
+import {Header} from "./components/Header";
+import {LoginForm} from "./components/LoginPage/LoginForm";
+import {Route, Routes} from "react-router-dom";
+import {ToDoPage} from "./components/TasksPage/ToDoPage";
+import {useDispatch} from "react-redux";
+import {authMe} from "./REDUX/slices/authSlice";
+import {SnackBar} from "./common/SnackBar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(authMe())
+    }, [])
+
+    return (
+        <div className="App">
+            <Header/>
+            <Routes>
+                <Route path='/' element={<ToDoPage/>}/>
+                <Route path='/login' element={<LoginForm/>}/>
+                <Route path='/tasks' element={<ToDoPage/>}/>
+            </Routes>
+            <SnackBar/>
+        </div>
+    );
 }
 
 export default App;

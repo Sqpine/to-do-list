@@ -1,0 +1,44 @@
+.loginPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.loginPage .field {
+    margin-bottom: 20px;
+}
+
+.loginPage > form {
+    width: 300px;
+}
+
+.toDoPage {
+    padding: 40px 0 0 0;
+}
+
+.addTittle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.taskPage {
+    padding: 40px;
+}
+
+.tasks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 50px;
+    padding: 40px 0 0 0;
+}
+
+.task {
+    border-radius: 20px;
+    padding: 30px;
+    background: gainsboro;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}
